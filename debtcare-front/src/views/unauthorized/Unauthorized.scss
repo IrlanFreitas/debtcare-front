@@ -1,0 +1,58 @@
+.Unauthorized {
+    background-color: #557A95 !important;
+    position:fixed;
+    padding:0;
+    margin:0;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+
+        h1{
+            color: white;
+            position: absolute;
+            width: 100px;
+            height: 75px;
+            z-index: 15;
+            top: 30%;
+            left: 50%;
+            margin: -100px 0 0 -150px;
+            font-size: 30px;
+        }
+        h2{
+            color: white;
+            position: absolute;
+            width: 250px;
+            height: 50px;
+            z-index: 15;
+            top: 38%;
+            left: 50%;
+            font-size: 20px;
+            margin: -100px 0 0 -150px;
+        }
+
+        .buttonTo {
+
+            color: white;
+            position: absolute;
+            width: 450px;
+            height: 200px;
+            z-index: 15;
+            top: 48%;
+            left: 50%;
+            font-size: 20px;
+            margin: -100px 0 0 -150px;
+
+        }
+
+}
+
+.noselect {
+    -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+       -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+          -ms-user-select: none; /* Internet Explorer/Edge */
+              user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Opera and Firefox */
+  }

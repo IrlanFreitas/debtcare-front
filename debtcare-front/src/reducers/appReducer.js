@@ -1,4 +1,4 @@
-import ActionType from '~/helpers/enums/constants/ActionType';
+import ActionType from '~/helpers/enums/ActionType';
 const INITIAL_STATE = {
   loading: {
     loadingAddress: false,
