@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { addInterceptors } from './interceptors';
+import { addInterceptors } from './intercertors';
 
 let instance = null;
 const DEFAULT_BASE_URL = '/api';

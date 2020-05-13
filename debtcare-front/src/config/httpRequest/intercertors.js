@@ -1,6 +1,8 @@
 import { message } from 'antd';
+import Utils from '~/helpers/Utils'
+
 export const addInterceptors = http => {
-  // RESPONSE INTERCEPTORS
+  //* RESPONSE INTERCEPTORS
   http.interceptors.response.use(
     response => {
       // TODO Do something with response data
@@ -31,9 +33,12 @@ export const addInterceptors = http => {
     }
   );
 
-  // REQUEST INTERCEPTORS
+  //* REQUEST INTERCEPTORS
   http.interceptors.request.use(
     async config => {
+      if (Utils.hasTokenValid) {
+        config.headers.Authorization = Utils.getToken()
+      }
       return config;
     },
     error => {

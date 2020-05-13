@@ -1,7 +1,7 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
-import { Form, Input, Icon, Checkbox, Row, Col, Button } from "antd";
+import { Form, Input, Icon, Row, Col, Button } from "antd";
 import authAction from "~/actions/authAction";
 import "./Login.scss";
 // import Messages from "~/helpers/enums/Messages";
@@ -9,30 +9,29 @@ import utils from "~/helpers/Utils";
 
 import Constants from "~/helpers/enums/Constants";
 
-const LoginForm = (props) => {
+const LoginForm = ({ history }) => {
   const dispatch = useDispatch();
-  const { form } = props;
-  const { getFieldDecorator } = form;
+  // const [form] = Form.useForm();
 
   const loading = useSelector((state) => state.app.loading);
 
-  function sendLogin(e) {
-    e.preventDefault();
-    form.validateFields((err, values) => {
-      if (!err) {
+  const sendLogin = values => {
+    // e.preventDefault();
+    // form.formvalidateFields((err, values) => {
+    //   if (!err) {
         dispatch(
           authAction.sendCredentials(values, redirectUser, "buttonLogin")
         );
-      }
-    });
+      // }
+    // });
   }
 
-  function redirectUser(error) {
+  const redirectUser = (error) => {
     if (error) {
       return;
     }
-    props.history.replace("/");
-    // utils.showTranslatedToast(Messages.MSG_LOGIN_SUCCESS, { autoClose: 2000 }, t?);
+    history.replace("/");
+    utils.showTranslatedToast("Logado com sucesso", { autoClose: 2000 });
   }
 
   return (
@@ -46,37 +45,31 @@ const LoginForm = (props) => {
         style={{ minHeight: "100vh" }}
       >
         <Col style={{ minWidth: 426 }}>
-          <Form onSubmit={sendLogin} className="login-form">
-            <Form.Item>
-              {getFieldDecorator("username", {
-                rules: [{ required: true, message: Constants.INPUT_USERNAME }],
-              })(
-                <Input
-                  prefix={
-                    <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                  }
-                  placeholder={Constants.USERNAME}
-                />
-              )}
+          <Form onFinish={sendLogin} onFinishFailed={() => {}} className="login-form">
+            <Form.Item
+              name="username"
+              rules={[{ required: true, message: Constants.INPUT_USERNAME }]}
+            >
+              <Input
+                prefix={
+                  <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
+                placeholder={"Login"}
+              />
             </Form.Item>
-            <Form.Item>
-              {getFieldDecorator("password", {
-                rules: [{ required: true, message: Constants.INPUT_PASSWORD }],
-              })(
-                <Input
-                  prefix={
-                    <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                  }
-                  type="password"
-                  placeholder={Constants.PASSWORD}
-                />
-              )}
+            <Form.Item
+              name="password"
+              rules={[{ required: true, message: Constants.INPUT_PASSWORD }]}
+            >
+              <Input
+                prefix={
+                  <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
+                }
+                type="password"
+                placeholder={"Senha"}
+              />
             </Form.Item>
-            <Form.Item>
-              {getFieldDecorator("remember", {
-                valuePropName: "checked",
-                initialValue: true,
-              })(<Checkbox>{Constants.REMEMBER_ME}</Checkbox>)}
+            <Form.Item >
 
               <Button
                 loading={loading.buttonLogin}
@@ -84,7 +77,7 @@ const LoginForm = (props) => {
                 type="primary"
                 className="login-form-button"
               >
-                {`loginForm:${Constants.LOGIN}`}
+                Logar
               </Button>
             </Form.Item>
           </Form>
@@ -94,5 +87,4 @@ const LoginForm = (props) => {
   );
 };
 
-const WrappedLogin = Form.create({ name: "loginform" })(LoginForm);
-export default withRouter(WrappedLogin);
+export default withRouter(LoginForm);

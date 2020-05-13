@@ -6,8 +6,8 @@ const obterUsuarios = () => {
   return new Promise((resolve, reject) => {
     http
       .get(`/${USUARIOS}`)
-      .then((users) => resolve(users))
-      .catch((error) => reject(error));
+      .then(result => resolve(result))
+      .catch(error => reject(error));
   });
 };
 
