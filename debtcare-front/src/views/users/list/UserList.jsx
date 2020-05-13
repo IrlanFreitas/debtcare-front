@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { Table, Tag, Space } from "antd";
-import userAction from "~/actions/userAction"
+import userAction from "~/actions/userAction";
 
 const columns = [
   {
     title: "Cpf",
     dataIndex: "cpf",
     key: "cpf",
+    render: (text) => (
+      <span>{text?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")}</span>
+    ),
   },
   {
     title: "Nome",
@@ -20,36 +23,7 @@ const columns = [
     dataIndex: "Telefone",
     key: "Telefone",
   },
-  {
-    title: "Tags",
-    key: "tags",
-    dataIndex: "tags",
-    render: (tags) => (
-      <>
-        {tags.map((tag) => {
-          let color = tag.length > 5 ? "geekblue" : "green";
-          if (tag === "loser") {
-            color = "volcano";
-          }
-          return (
-            <Tag color={color} key={tag}>
-              {tag.toUpperCase()}
-            </Tag>
-          );
-        })}
-      </>
-    ),
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: (text, record) => (
-      <Space size="middle">
-        <a>Invite {record.name}</a>
-        <a>Delete</a>
-      </Space>
-    ),
-  },
+  
 ];
 
 export default function UserList() {
@@ -81,9 +55,9 @@ export default function UserList() {
     },
   ];
 
-  useEffect(()=> {
-    dispatch(userAction.list("waitUsers"))
-  }, [dispatch])
+  useEffect(() => {
+    dispatch(userAction.list("waitUsers"));
+  }, [dispatch]);
 
   return (
     <>

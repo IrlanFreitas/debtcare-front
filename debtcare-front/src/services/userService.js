@@ -6,7 +6,7 @@ const obterUsuarios = () => {
   return new Promise((resolve, reject) => {
     http
       .get(`/${USUARIOS}`)
-      .then(result => resolve(result))
+      .then(result => resolve(result.data))
       .catch(error => reject(error));
   });
 };
