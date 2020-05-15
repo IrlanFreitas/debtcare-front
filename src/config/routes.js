@@ -15,7 +15,7 @@ export const routes = [
     path: "/",
     exact: true,
     title: () => "Dívida Zero",
-    view: () => <div>Dívida Zero - Landind Page</div>,
+    view: () => <div>Dívida Zero - Landing Page</div>,
     onlyAuthorized: true,
   },
   {
