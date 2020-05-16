@@ -75,7 +75,8 @@
     "webpack-dev-server": "3.10.2",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "4.3.1",
-    "react-app-rewired": "^2.1.6"
+    "react-app-rewired": "^2.1.6",
+    "react-toastify": "^6.0.1"
   },
   "scripts": {
     "start": "react-app-rewired --max_old_space_size=4096 start ",
@@ -98,7 +99,7 @@
     ]
   },
   "devDependencies": {
-    "react-toastify": "^6.0.1"
+
   },
   "jest": {
     "roots": [
