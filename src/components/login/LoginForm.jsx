@@ -1,30 +1,23 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router";
-import { Form, Input, Icon, Row, Col, Button } from "antd";
+import { Form, Input, Row, Col, Button } from "antd";
 import authAction from "~/actions/authAction";
 import "./Login.scss";
-// import Messages from "~/helpers/enums/Messages";
 import utils from "~/helpers/Utils";
+import { Link } from "react-router-dom";
+import DividaZeroLogo from '~/assets/images/divida-zero-logo.svg'
 
-import Constants from "~/helpers/enums/Constants";
 
 const LoginForm = ({ history }) => {
   const dispatch = useDispatch();
-  // const [form] = Form.useForm();
 
   const loading = useSelector((state) => state.app.loading);
 
-  const sendLogin = values => {
-    // e.preventDefault();
-    // form.formvalidateFields((err, values) => {
-    //   if (!err) {
-        dispatch(
-          authAction.sendCredentials(values, redirectUser, "buttonLogin")
-        );
-      // }
-    // });
-  }
+  const sendLogin = (values) => {
+    dispatch(authAction.sendCredentials(values, redirectUser, "buttonLogin"));
+
+  };
 
   const redirectUser = (error) => {
     if (error) {
@@ -32,52 +25,57 @@ const LoginForm = ({ history }) => {
     }
     history.replace("/");
     utils.showTranslatedToast("Logado com sucesso", { autoClose: 2000 });
-  }
+  };
 
   return (
     <>
-      <p>{Constants.SUCCESSFUL_OPERATION}</p>
-
       <Row
         type="flex"
         justify="center"
         align="middle"
-        style={{ minHeight: "100vh" }}
+        style={{ minHeight: "100vh", backgroundColor: "#1D4970" }}
       >
-        <Col style={{ minWidth: 426 }}>
-          <Form onFinish={sendLogin} onFinishFailed={() => {}} className="login-form">
-            <Form.Item
-              name="username"
-              rules={[{ required: true, message: Constants.INPUT_USERNAME }]}
-            >
-              <Input
-                prefix={
-                  <Icon type="user" style={{ color: "rgba(0,0,0,.25)" }} />
-                }
-                placeholder={"Login"}
-              />
-            </Form.Item>
-            <Form.Item
-              name="password"
-              rules={[{ required: true, message: Constants.INPUT_PASSWORD }]}
-            >
-              <Input
-                prefix={
-                  <Icon type="lock" style={{ color: "rgba(0,0,0,.25)" }} />
-                }
-                type="password"
-                placeholder={"Senha"}
-              />
-            </Form.Item>
-            <Form.Item >
+        <Col style={{ width: '20vw' }}>
 
+          <img src={DividaZeroLogo} alt="Logo dívida zero" style={{width:'100%'}} />
+
+          <Form
+            onFinish={sendLogin}
+            onFinishFailed={() => {}}
+            className="login-form"
+            layout="vertical"
+          >
+            <Form.Item
+              label="Usuário"
+              name="username"
+              style={{marginBottom: 10}}
+              rules={[{ required: true, message: "O campo Usuário é necessário" }]}
+            >
+              <Input />
+            </Form.Item>
+
+            <Form.Item
+              label="Senha"
+              name="password"
+              rules={[{ required: true, message: "O campo Senha é necessário" }]}
+            >
+              <Input
+                type="password"
+                placeholder={"Digite aqui"}
+              />
+            </Form.Item>
+
+            <Form.Item >
+              <div >
+                <Link to="/forgotPasswrd" className="esqueciMinhaSenha">esqueci minha senha</Link>
+              </div>
               <Button
                 loading={loading.buttonLogin}
                 htmlType="submit"
-                type="primary"
-                className="login-form-button"
+                className="btnEntrar"
+
               >
-                Logar
+                <span>Entrar</span>
               </Button>
             </Form.Item>
           </Form>

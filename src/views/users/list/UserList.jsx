@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { Table, Tag, Space } from "antd";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { Table } from "antd";
 import userAction from "~/actions/userAction";
 
 const columns = [
@@ -16,7 +16,7 @@ const columns = [
     title: "Nome",
     dataIndex: "nome",
     key: "nome",
-    render: (text) => <a>{text}</a>,
+    // render: (text) => <a>{text}</a>
   },
   {
     title: "Telefone",
@@ -29,7 +29,6 @@ const columns = [
 export default function UserList() {
   const dispatch = useDispatch();
 
-  const users = useSelector((state) => state.user.users);
 
   const data = [
     {
