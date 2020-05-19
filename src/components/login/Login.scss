@@ -4,10 +4,51 @@
   padding: 10px;
   width: 50%;
 }
-.ant-form.ant-form-horizontal.login-form-forgot {
-  float: right;
+
+.ant-input {
+  background: #ffffff 0% 0% no-repeat padding-box !important;
+  border: 1px solid #9a9a9a !important;
+  border-radius: 10px !important;
+  opacity: 1 !important;
 }
-.ant-form.ant-form-horizontal.login-form-button {
-  width: 100%;
-  float: left;
+
+.ant-form-item-required {
+  color: white !important;
+}
+
+.ant-form-item-control-input-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.esqueciMinhaSenha {
+  color: white;
+  text-decoration: underline;
+  font-size: 12px;
+}
+
+.btnEntrar {
+  background: #f28814 0% 0% no-repeat padding-box !important;
+  width: 140px;
+  height: 40px !important;
+  border-color: #f28814 !important;
+  border-radius: 10px !important;
+  
+}
+
+.btnEntrar:hover {
+  background: #ffffff 0% 0% no-repeat padding-box !important;
+  border-color: #ffffff  !important;
+}
+
+.ant-btn {
+  text-align: center;
+  color: #ffffff !important;
+  font-size: 18px !important;
+  font: Regular 27px Segoe UI !important;
+}
+
+.ant-btn:hover {
+  color: #f28814 !important;
 }

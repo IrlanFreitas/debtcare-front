@@ -1,0 +1,13 @@
+[
+    {
+        "id": 1,
+        "cpf": "06722236510",
+        "nome": "Irlan Freitas Santana",
+        "dataNascimento": "1995-26-11",
+        "sexo": "Masculino",
+        "tipoAcessoId": 1,
+        "dataCadastro": "2018-01-01",
+        "login": "irlanfreitas",
+        "senha": "123456789"
+    }
+]

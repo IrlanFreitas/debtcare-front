@@ -53,12 +53,14 @@
     "postcss-safe-parser": "4.0.1",
     "react": "^16.13.0",
     "react-app-polyfill": "^1.0.6",
+    "react-app-rewired": "^2.1.6",
     "react-dev-utils": "^10.2.0",
     "react-dom": "^16.13.0",
     "react-helmet": "^6.0.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.0",
+    "react-toastify": "^6.0.1",
     "redux": "^4.0.5",
     "redux-devtools-extension": "^2.13.8",
     "redux-logger": "^3.0.6",
@@ -75,8 +77,7 @@
     "webpack-dev-server": "3.10.2",
     "webpack-manifest-plugin": "2.2.0",
     "workbox-webpack-plugin": "4.3.1",
-    "react-app-rewired": "^2.1.6",
-    "react-toastify": "^6.0.1"
+    "write-json-file": "^4.3.0"
   },
   "scripts": {
     "start": "react-app-rewired --max_old_space_size=4096 start ",

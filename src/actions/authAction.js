@@ -14,6 +14,7 @@ const sendCredentials = (
     .then(response => {
       if (response) {
         Utils.setToken(JSON.stringify(response.token));
+        
         callback();
         dispatch({ type: Constants.LOGIN, payload: response });
       }
