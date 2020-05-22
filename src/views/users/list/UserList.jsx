@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Table } from "antd";
-import userAction from "~/actions/userAction";
+// import userAction from "~/actions/userAction";
 
 const columns = [
   {
@@ -55,7 +55,7 @@ export default function UserList() {
   ];
 
   useEffect(() => {
-    dispatch(userAction.list("waitUsers"));
+    // dispatch(userAction.list("waitUsers"));
   }, [dispatch]);
 
   return (

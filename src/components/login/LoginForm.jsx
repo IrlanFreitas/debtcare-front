@@ -21,9 +21,10 @@ const LoginForm = ({ history }) => {
 
   const redirectUser = (error) => {
     if (error) {
+      utils.showTranslatedToast("Sem permissão de acesso", { autoClose: 2000 });
       return;
     }
-    history.replace("/");
+    history.replace("/usuarios");
     utils.showTranslatedToast("Logado com sucesso", { autoClose: 2000 });
   };
 

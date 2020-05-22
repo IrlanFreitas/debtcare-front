@@ -1,20 +1,29 @@
 // Login PAGE -
-export const INPUT_USERNAME = 'INPUT_USERNAME.1';
-export const INPUT_PASSWORD = 'INPUT_PASSWORD.1';
-export const USERNAME = 'USERNAME.1';
-export const PASSWORD = 'PASSWORD.1';
-export const REMEMBER_ME = 'REMEMBER_ME.1';
+export const INPUT_USERNAME = 'INPUT_USERNAME';
+export const INPUT_PASSWORD = 'INPUT_PASSWORD';
+export const USERNAME = 'USERNAME';
+export const PASSWORD = 'PASSWORD';
+export const REMEMBER_ME = 'REMEMBER_ME';
 export const LOGIN = 'LOGIN';
+
+export const JWT_SECRET = 'IRLANFREITAS'
+
+export const ROTAS = {
+  HOME: '/',
+  DASHBOARD: '/dashboard',
+  USUARIOS: '/usuarios',
+  LOGIN: '/login',
+  NAO_AUTORIZADO: '/not-authorized',
+  NAO_ENCONTRADO: '/not-found'
+}
 
 
 // Header PAGE
-export const REPORTS = 'REPORTS.1';
-export const INDICATORS = 'INDICATORS.1';
+export const REPORTS = 'REPORTS';
+export const INDICATORS = 'INDICATORS';
 
 // userActions
-
-export const CANT_DELETE_USER = 'CANT_DELETE_USER.1';
-
+export const CANT_DELETE_USER = 'CANT_DELETE_USER';
 export const FETCH_LOGIN = 'FETCH_LOGIN';
 export const FETCH_DASHBOARD_INDICATORS = 'FETCH_DASHBOARD';
 export const FALSE = 'FALSE';
@@ -35,14 +44,14 @@ export const INFO = 'info';
 export const WARNING = 'warning';
 
 // Messages descriptions
-export const SUCCESSFUL_OPERATION = 'SUCCESSFUL_OPERATION.1';
-export const SUCCESSFULLY_LOGGED = 'SUCCESSFULLY_LOGGED.1';
+export const SUCCESSFUL_OPERATION = 'SUCCESSFUL_OPERATION';
+export const SUCCESSFULLY_LOGGED = 'SUCCESSFULLY_LOGGED';
 export const UNAVAILABLE_SERVICE =
   'Serviço temporariamente indisponível. Tente novamente mais tarde.';
 export const NEED_SUPPORT =
   'Não foi possível realizar a operação. Favor, contactar o suporte.';
 
-export const THANKS = 'Thanks.1';
+export const THANKS = 'Thanks';
 
 // Choose language
 export const LANGUAGE = 'LANGUAGE';
@@ -128,4 +137,6 @@ export default {
   CHANGE_PAGE_NAME,
   PAGE_USER,
   PAGE_USER_REGISTER,
+  ROTAS,
+  JWT_SECRET
 };
