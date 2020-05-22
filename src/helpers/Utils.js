@@ -25,7 +25,10 @@ export const hasTokenValid = () => {
   try {
     if (isEmpty(getToken())) return false;
 
-    jsonwebtoken.verify(getToken(), Constants.JWT_SECRET);
+    const decoded = jsonwebtoken.verify(getToken(), Constants.JWT_SECRET);
+
+    //TODO Fake Refresh Token
+    setToken(jsonwebtoken.sign({id: decoded.id, login: decoded.login}, Constants.JWT_SECRET, { expiresIn: '30m' }))
 
     return true;
   } catch (error) {

@@ -10,7 +10,6 @@ export const login = (credentials) => {
   // TODO Delete Mock for wrong password
   return new Promise((resolve, reject) => {
     
-    
     //TODO tudo isso será feito corretamente no backend
     try {
       setTimeout(() => resolve(fakeLogin(credentials)), 2000);
@@ -24,7 +23,7 @@ export const login = (credentials) => {
 export const fakeLogin = credentials => {
   const { username, password } = credentials;
 
-  const usuario = usuarios.find(usuario => usuario.login === username && usuario.senha === password)
+  const usuario = usuarios.find(usuario => usuario.login === username.trim() && usuario.senha === password.trim())
 
   if (usuario.length === 0) throw new Error({ status: 402, response: 'Não autorizado'})
 
