@@ -1,4 +1,4 @@
-import authService from '~/services/authService';
+import authService from '~/fakeService/authFakeService';
 import Constants from '~/helpers/enums/Constants';
 import Utils from '~/helpers/Utils';
 
@@ -13,7 +13,7 @@ const sendCredentials = (
     .login(values)
     .then(response => {
       if (response) {
-        Utils.setToken(JSON.stringify(response.token));
+        Utils.setToken(response.token);
         
         callback();
         dispatch({ type: Constants.LOGIN, payload: response });
@@ -31,7 +31,7 @@ const verifyCredentialsAuthentication = isAuthenticated => dispatch => {
   if (Utils.not(isAuthenticated) && Utils.hasTokenValid()) {
     dispatch({ type: Constants.LOGIN, payload: {} });
   } else if (Utils.not(Utils.hasTokenValid())) {
-    dispatch({ type: Constants.LOGOUT });
+    dispatch(logout())
   }
 };
 

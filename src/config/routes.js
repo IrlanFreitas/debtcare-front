@@ -2,49 +2,49 @@ import React from "react";
 
 import UserList from "~/views/users/list/UserList";
 import Login from "~/views/login/Login";
+import { ROTAS } from "~/helpers/enums/Constants";
 
 export const routes = [
   {
-    path: "/home",
-    exact: true,
-    title: () => "Home",
-    view: () => <div>Home</div>,
-    onlyAuthorized: true,
-  },
-  {
-    path: "/",
+    path: ROTAS.HOME,
     exact: true,
     title: () => "Dívida Zero",
     view: () => <div>Dívida Zero - Landing Page</div>,
+    onlyAuthorized: false,
+  },
+  {
+    path: ROTAS.DASHBOARD,
+    exact: true,
+    title: () => "Dashboard",
+    view: () => <div>Dashboard</div>,
     onlyAuthorized: true,
   },
   {
-    path: "/usuarios",
+    path: ROTAS.USUARIOS,
     exact: true,
     title: () => "Usuários",
     view: () => <UserList />,
     onlyAuthorized: true,
   },
   {
-    path: '/login',
+    path: ROTAS.LOGIN,
     exact: true,
-    title: () => 'Login',
+    title: () => "Login",
     view: () => <Login />,
     onlyAuthorized: false,
   },
-
   {
-    path: "/not-authorized",
+    path: ROTAS.NAO_AUTORIZADO,
     exact: true,
     title: () => "Acesso negado",
     view: () => <>Não autorizado</>, //<Unauthorized />,
     onlyAuthorized: "both",
   },
   {
-    path: "/not-found",
+    path: ROTAS.NAO_ENCONTRADO,
     exact: true,
     title: () => "Página não encontrada",
-    view: () => <>Não encontrado</>,  //<NotFound />,
+    view: () => <>Não encontrado</>, //<NotFound />,
     onlyAuthorized: "both",
   },
 ];

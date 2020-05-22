@@ -5,7 +5,6 @@ import { ToastContainer } from "react-toastify";
 import Routers from "~/components/app/routers/Routers";
 import BaseLayout from "~/components/app/baseLayout/BaseLayout";
 import signupAction from "~/actions/authAction";
-import Utils from "~/helpers/Utils";
 
 import "react-toastify/dist/ReactToastify.css";
 import "./App.scss";
@@ -20,8 +19,6 @@ const App = () => {
     dispatch(signupAction.verifyCredentialsAuthentication(isAuthenticated));
   }, [dispatch, isAuthenticated]);
 
-  const hasTokenValid = Utils.hasTokenValid();
-
   return (
     <>
       <Suspense fallback="loading">
@@ -29,7 +26,7 @@ const App = () => {
           <meta name="version" content={VERSION || "1.0.0"} />
         </Helmet>
 
-        {isAuthenticated || hasTokenValid ? (
+        {isAuthenticated ? (
           <BaseLayout.Authenticated>
             <Routers.Authenticated />
           </BaseLayout.Authenticated>
