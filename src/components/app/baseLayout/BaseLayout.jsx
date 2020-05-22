@@ -1,18 +1,34 @@
-import { Layout, Menu } from "antd";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { Layout, Menu, Dropdown, Avatar } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
   HomeOutlined,
+  LogoutOutlined,
 } from "@ant-design/icons";
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./BaseLayout.scss";
+import authAction from "~/actions/authAction";
 
 const { Header, Sider, Content } = Layout;
 
 const Authenticated = ({ children }) => {
+  const dispatch = useDispatch();
   const [collapsed, setCollapsed] = useState(false);
+
+  function handleMenuClick(e) {
+    console.log("click left button", e);
+  }
+
+  const menu = (
+    <Menu onClick={handleMenuClick}>
+      <Menu.Item key="1" onClick={() => dispatch(authAction.logout())} icon={<LogoutOutlined />}>
+        Deslogar
+      </Menu.Item>
+    </Menu>
+  );
 
   const toggle = () => setCollapsed(!collapsed);
 
@@ -28,12 +44,14 @@ const Authenticated = ({ children }) => {
           <Menu.Item key="2" icon={<UserOutlined />}>
             <Link to="/usuarios">Usuários</Link>
           </Menu.Item>
-
         </Menu>
       </Sider>
 
       <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
+        <Header
+          className="site-layout-background header"
+          style={{ padding: 0 }}
+        >
           {React.createElement(
             collapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
             {
@@ -43,6 +61,13 @@ const Authenticated = ({ children }) => {
               },
             }
           )}
+          <Dropdown overlay={menu} trigger={["click"]}>
+            <Avatar
+              size="large"
+              style={{ marginRight: 10, cursor: "pointer" }}
+              icon={<UserOutlined />}
+            />
+          </Dropdown>
         </Header>
 
         <Content

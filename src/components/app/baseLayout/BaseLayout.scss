@@ -1,5 +1,5 @@
 .ant-menu-item a {
-  color: #FFF !important;
+  color: #fff !important;
 }
 
 .trigger {
@@ -18,6 +18,12 @@
   height: 32px;
   background: rgba(255, 255, 255, 0.2);
   margin: 16px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .site-layout .site-layout-background {
