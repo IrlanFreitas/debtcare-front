@@ -7,7 +7,7 @@ import {
   UserOutlined,
   HomeOutlined,
   LogoutOutlined,
-  SnippetsOutlined
+  SnippetsOutlined,
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import "./BaseLayout.scss";
@@ -20,8 +20,12 @@ const Authenticated = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
 
   const menu = (
-    <Menu >
-      <Menu.Item key="1" onClick={() => dispatch(authAction.logout())} icon={<LogoutOutlined />}>
+    <Menu>
+      <Menu.Item
+        key="1"
+        onClick={() => dispatch(authAction.logout())}
+        icon={<LogoutOutlined />}
+      >
         Deslogar
       </Menu.Item>
     </Menu>
@@ -73,9 +77,8 @@ const Authenticated = ({ children }) => {
         <Content
           className="site-layout-background"
           style={{
-            margin: "24px 16px",
-            padding: 24,
             minHeight: 280,
+            padding: 10
           }}
         >
           {children}

@@ -21,13 +21,11 @@ export const login = (credentials) => {
 
 export const fakeLogin = (credentials) => {
   const { username, password } = credentials;
-  console.log(usuarios);
 
   const usuario = usuarios.filter(
     (usuario) =>
       usuario.login === username.trim() && usuario.senha === password.trim()
   );
-  console.log(usuario);
 
   if (usuario.length === 0) throw new Error("Não autorizado");
 

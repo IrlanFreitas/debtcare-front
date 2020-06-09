@@ -8,6 +8,7 @@
   padding: 0 24px;
   cursor: pointer;
   transition: color 0.3s;
+  color: white !important;
 }
 
 .trigger:hover {
@@ -27,5 +28,5 @@
 }
 
 .site-layout .site-layout-background {
-  background: #fff;
+  background: #b8b8b8;
 }
