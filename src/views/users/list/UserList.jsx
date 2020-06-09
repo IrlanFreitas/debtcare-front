@@ -9,7 +9,9 @@ const columns = [
     dataIndex: "cpf",
     key: "cpf",
     render: (text) => (
-      <span>{text?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")}</span>
+      <span>
+        {text?.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4")}
+      </span>
     ),
   },
   {
@@ -23,12 +25,10 @@ const columns = [
     dataIndex: "Telefone",
     key: "Telefone",
   },
-  
 ];
 
 export default function UserList() {
   const dispatch = useDispatch();
-
 
   const data = [
     {

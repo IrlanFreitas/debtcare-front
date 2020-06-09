@@ -19,7 +19,7 @@ export const login = (credentials) => {
 
     const usuario = usuarios.find(usuario => usuario.login === username && usuario.senha === password)
 
-    if (usuario.length === 0) {
+    if (usuario?.length === 0) {
       reject({ status: 402 });
       return;
     }

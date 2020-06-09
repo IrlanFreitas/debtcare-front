@@ -7,6 +7,7 @@ import {
   UserOutlined,
   HomeOutlined,
   LogoutOutlined,
+  SnippetsOutlined
 } from "@ant-design/icons";
 import { Link } from "react-router-dom";
 import "./BaseLayout.scss";
@@ -18,12 +19,8 @@ const Authenticated = ({ children }) => {
   const dispatch = useDispatch();
   const [collapsed, setCollapsed] = useState(false);
 
-  function handleMenuClick(e) {
-    console.log("click left button", e);
-  }
-
   const menu = (
-    <Menu onClick={handleMenuClick}>
+    <Menu >
       <Menu.Item key="1" onClick={() => dispatch(authAction.logout())} icon={<LogoutOutlined />}>
         Deslogar
       </Menu.Item>
@@ -41,7 +38,10 @@ const Authenticated = ({ children }) => {
           <Menu.Item key="1" icon={<HomeOutlined />}>
             <Link to="/dashboard">Home</Link>
           </Menu.Item>
-          <Menu.Item key="2" icon={<UserOutlined />}>
+          <Menu.Item key="2" icon={<SnippetsOutlined />}>
+            <Link to="/dividas">Dívidas</Link>
+          </Menu.Item>
+          <Menu.Item key="3" icon={<UserOutlined />}>
             <Link to="/usuarios">Usuários</Link>
           </Menu.Item>
         </Menu>

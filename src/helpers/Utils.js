@@ -28,7 +28,13 @@ export const hasTokenValid = () => {
     const decoded = jsonwebtoken.verify(getToken(), Constants.JWT_SECRET);
 
     //TODO Fake Refresh Token
-    setToken(jsonwebtoken.sign({id: decoded.id, login: decoded.login}, Constants.JWT_SECRET, { expiresIn: '30m' }))
+    setToken(
+      jsonwebtoken.sign(
+        { id: decoded.id, login: decoded.login },
+        Constants.JWT_SECRET,
+        { expiresIn: "30m" }
+      )
+    );
 
     return true;
   } catch (error) {
@@ -51,23 +57,15 @@ export const endLoading = (identifier) => ({
   loading: { [identifier]: false },
 });
 
-export const showTranslatedToast = (
-  { description, type },
-  translator,
-  props = () => {}
-) => {
+export const showToast = (description, type) => {
   if (!description) return;
-  try {
-    const Translated = translator(description);
-    description = Translated;
-  } catch (error) {
-  } finally {
-    toast(description, {
-      type: type,
-      position: toast.POSITION.TOP_CENTER,
-      ...props,
-    });
-  }
+
+  toast(description, {
+    type,
+    position: "top-center",
+    autoClose: 3000,
+    pauseOnHover: true,
+  });
 };
 
 export default {
@@ -80,6 +78,6 @@ export default {
   setToken,
   removeToken,
   getToken,
-  showTranslatedToast,
+  showToast,
   isEmptyOrNullOrZero,
 };
