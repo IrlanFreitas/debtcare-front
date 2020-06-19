@@ -5,7 +5,7 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
-  HomeOutlined,
+  // HomeOutlined,
   LogoutOutlined,
   SnippetsOutlined,
 } from "@ant-design/icons";
@@ -39,9 +39,9 @@ const Authenticated = ({ children }) => {
         <div className="logo" />
 
         <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1" icon={<HomeOutlined />}>
+          {/* <Menu.Item key="1" icon={<HomeOutlined />}>
             <Link to="/dashboard">Home</Link>
-          </Menu.Item>
+          </Menu.Item> */}
           <Menu.Item key="2" icon={<SnippetsOutlined />}>
             <Link to="/dividas">Dívidas</Link>
           </Menu.Item>
