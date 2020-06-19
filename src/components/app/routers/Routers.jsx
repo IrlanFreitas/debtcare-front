@@ -22,7 +22,7 @@ export const Authenticated = props => {
           pageInfo={route.pageInfo}
         />
       ))}
-      <Route path="/login" exact component={() => <Redirect to="/dashboard" />} />
+      <Route path="/login" exact component={() => <Redirect to="/dividas" />} />
       <Redirect to="/not-found" />
     </Switch>
   );

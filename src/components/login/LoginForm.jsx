@@ -29,6 +29,7 @@ const LoginForm = ({ history }) => {
   return (
     <>
       <Row
+        className="login"
         type="flex"
         justify="center"
         align="middle"

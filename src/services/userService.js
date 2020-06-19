@@ -1,4 +1,5 @@
 import http from "~/config/httpRequest/http";
+import usuarios from '~/data/usuario.json'
 
 const USUARIOS = "usuarios";
 

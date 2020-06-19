@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Table } from "antd";
-// import userAction from "~/actions/userAction";
+import userAction from "~/actions/userAction";
 
 const columns = [
   {
@@ -18,49 +18,30 @@ const columns = [
     title: "Nome",
     dataIndex: "nome",
     key: "nome",
-    // render: (text) => <a>{text}</a>
   },
   {
     title: "Telefone",
-    dataIndex: "Telefone",
-    key: "Telefone",
+    dataIndex: "telefone",
+    key: "telefone",
+  },
+  {
+    title: "Tipo",
+    dataIndex: "tipo",
+    key: "tipo",
   },
 ];
 
 export default function UserList() {
   const dispatch = useDispatch();
-
-  const data = [
-    {
-      key: "1",
-      name: "John Brown",
-      age: 32,
-      address: "New York No. 1 Lake Park",
-      tags: ["nice", "developer"],
-    },
-    {
-      key: "2",
-      name: "Jim Green",
-      age: 42,
-      address: "London No. 1 Lake Park",
-      tags: ["loser"],
-    },
-    {
-      key: "3",
-      name: "Joe Black",
-      age: 32,
-      address: "Sidney No. 1 Lake Park",
-      tags: ["cool", "teacher"],
-    },
-  ];
+  const users = useSelector((state) => state.user.users);
 
   useEffect(() => {
-    // dispatch(userAction.list("waitUsers"));
+    dispatch(userAction.list("waitUsers"));
   }, [dispatch]);
 
   return (
     <>
-      <Table columns={columns} dataSource={data} />
+      <Table rowKey="id" columns={columns} dataSource={users} />
     </>
   );
 }

@@ -58,6 +58,9 @@ export const LANGUAGE = "LANGUAGE";
 // Auth
 export const REGISTER_SUCCESS = "Registered with success!";
 
+//DIVIDAS
+export const GET_DEBTS = "GET_DEBTS";
+
 // USER
 export const GET_USERS = "GET_USERS";
 export const SAVED = "SALVED";
@@ -138,4 +141,5 @@ export default {
   PAGE_USER_REGISTER,
   ROTAS,
   JWT_SECRET,
+  GET_DEBTS
 };
